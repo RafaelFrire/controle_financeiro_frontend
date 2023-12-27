@@ -13,7 +13,7 @@ export const Container = Styled.header`
 export const Title = Styled.h1`
     font-size: 2.9em;
     font-family: Arial;
-    color: white;
+    color: text-color;
     margin: 0 auto;
 
 

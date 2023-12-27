@@ -1,9 +1,13 @@
 import { Container, Title } from './Header';
 
-function header() {
+interface HeaderProps{
+  Title: string,
+}
+
+function header(props:HeaderProps):JSX.Element{
   return (
     <Container>
-      <Title>Minhas Finanças</Title>
+      <Title>{props.Title}</Title>
     </Container>
   )
 }
