@@ -11,10 +11,22 @@ export const CardController = Styled.div`
     h1{
         padding-top: 10px;
     }
+
+    @media (max-width: 420px){
+        display: flex;
+        flex-direction: column;
+        margin:0 auto;
+        width: 250px;
+    }
 `
 
 export const TextValue = Styled.h2`
     font-size: 2rem;
     padding: 20px 0;
+
+    @media (max-width: 320px){
+        font-size: 1.7rem;
+        
+    }
 
 `
