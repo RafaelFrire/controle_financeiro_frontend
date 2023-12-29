@@ -1,12 +1,10 @@
 import Header from './components/header/Header.tsx'
 import CardsController from './components/cards-controller/CardsController.tsx'
 import TitlePage from './components/TitlePage/TitlePage.tsx'
-import React from 'react';
+import Table from './components/table/Table.tsx';
 import useFetch from './hooks/useFetch.tsx';
 function App() {
 
-  const [earn, setEarn] = React.useState({valor:150});
-  const [balance, setBalance] = React.useState(0);
   const data = useFetch()
 
 
@@ -19,6 +17,10 @@ function App() {
           <CardsController Title='Saídas' value={data.sub} Color='#C07474'></CardsController>
           <CardsController Title='Balanço' value={data.balance} Color='#DAB453'></CardsController>
         </section>
+
+        <Table>
+          
+        </Table>
      
     </>
   )

@@ -7,7 +7,7 @@ function useFetch() {
 
  const [sum, setSum] = React.useState<number>(0);
  const [sub, setSub] = React.useState<number>(0)
- const balance = (sum - sub).toFixed(2);
+ const balance:any = (sum-sub).toFixed(2);
  useEffect(() =>{
     try {
         axios.get('http://localhost:3000/transactions').then((response) => {
