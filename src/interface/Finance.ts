@@ -3,5 +3,6 @@ export interface Finance{
     descricao: string,
     data: string,
     recorrencia: string,
+    transacao: string,
     valor: number
   }

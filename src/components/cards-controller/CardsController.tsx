@@ -11,7 +11,7 @@ function CardsController(props: CardProps) {
   return (
         <CardController style={{backgroundColor: props.Color}}>
             <h1>{props.Title}</h1>
-            <TextValue>R$ {props.value},00</TextValue>
+            <TextValue>R$ {props.value}</TextValue>
         </CardController>
 
   )
