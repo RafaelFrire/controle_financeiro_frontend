@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial;
 }
 #root{
     color: var(--title-color, #F5F5F5);
@@ -19,25 +20,7 @@
 }
 
 
-tr{
-    height: 40px;
-    font-size: 20px;
-}
 
-th{
-    text-align: center;
-    background-color: #787878;;
-    color: #ECECEC;
-    font-family: Arial;
-}
-
-td{
-    width: 100px;
-    height: 40px;
-    background-color: #E4E4E4;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-}
 
 @media (max-width: 700px){
     .section_controller{

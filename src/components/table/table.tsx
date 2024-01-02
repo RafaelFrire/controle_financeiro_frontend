@@ -1,36 +1,35 @@
-import { useEffect } from 'react'
 import useFetch from '../../hooks/useFetch'
-import { Table } from './Table'
 import { Finance } from '../../interface/Finance'
+import './index.css'
 
-function table() {
+function Table() {
     const data = useFetch().fetchData
-    console.log(data)
-
-
+ 
   return (
-    <Table>
+    <table>
         <tr>
             <th style={{width: "550px"}}>descrição</th>
             <th>Data</th>
             <th style={{width: "150px"}}>Recorrencia</th>
+            <th>tipo</th>
             <th>Valor</th>
         </tr>
 
         {Array.isArray(data)?
          data.map((item:Finance) =>{
             return(
-                <tr>
+              <tr>
                 <td>{item.descricao}</td>
                 <td>{item.data}</td>
                 <td>{item.recorrencia}</td>
+                <td >{item.transacao}</td>
                 <td>{item.valor}</td>
             </tr>
             )
-         }):'is not a array'}
+         }):<h1>is not array</h1>}
        
-    </Table>
+    </table>
   )
 }
 
-export default table
+export default Table
