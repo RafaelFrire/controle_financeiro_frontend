@@ -1,12 +1,27 @@
-
+import React from 'react';
+import Modal from '../Modal/Modal'
 import { BtnModal, BtnContainer } from './Button'
 
-function Button() {
+
+function Button(){
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+
   return (
+    <>
     <BtnContainer>
-        <BtnModal>Adicionar</BtnModal>
+        <BtnModal onClick={handleOpenModal}>Adicionar</BtnModal>
     </BtnContainer>
-    
+    {isModalOpen && <Modal status={isModalOpen} onClose={handleCloseModal}/>}
+    </>
   )
 }
 

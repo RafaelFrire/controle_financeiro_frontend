@@ -4,19 +4,13 @@ import TitlePage from './components/TitlePage/TitlePage.tsx'
 import Table from './components/table/Table.tsx';
 import useFetch from './hooks/useFetch.tsx';
 import Button from './components/Button/Button.tsx'  
-import Modal from './components/Modal/Modal.tsx';
-
 
 function App() {
 
-
-
   const data = useFetch()
-
 
   return (
     <>
-      
         <Header Title='Minhas Finanças'></Header>
         <TitlePage></TitlePage>
         <section className='section_controller'>
@@ -24,11 +18,9 @@ function App() {
           <CardsController Title='Saídas' value={data.sub} Color='#C07474'></CardsController>
           <CardsController Title='Balanço' value={data.balance} Color='#DAB453'></CardsController>
         </section>
-
         <Table/>
         <Button />
-        <Modal status={true}/>
-     
+
     </>
   )
 }
