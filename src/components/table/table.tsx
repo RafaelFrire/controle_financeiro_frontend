@@ -22,7 +22,7 @@ function Table() {
            data.map((item:Finance) =>{
               return(
                 <tr key={item.id}>
-                  <td>{item.descricao}</td>
+                  <td style={{textAlign:"left"}}>{item.descricao}</td>
                   <td>{item.data}</td>
                   <td>{item.recorrencia}</td>
                   <td >{item.transacao}</td>
