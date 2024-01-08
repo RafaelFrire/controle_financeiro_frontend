@@ -8,9 +8,11 @@ function useFetch() {
  const [sum, setSum] = React.useState<number>(0);
  const [sub, setSub] = React.useState<number>(0)
  const balance:any = (sum-sub).toFixed(2);
+
+ const baseURL = 'http://localhost:3000'
  useEffect(() =>{
     try {
-        axios.get('http://localhost:3000/transactions').then((response) => {
+        axios.get(`${baseURL}/transactions`).then((response) => {
           setFetchData(response.data);
         });
       } catch (err) {
@@ -33,7 +35,7 @@ useEffect(()=>{
           
         }
         else{
-            console.log("is not array")
+            console.error("is not array")
         }
      }
      earnings()

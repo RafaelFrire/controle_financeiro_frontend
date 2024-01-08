@@ -2,9 +2,15 @@ import useFetch from '../../hooks/useFetch'
 import { Finance } from '../../interface/Finance'
 import './index.css'
 
+
+
+
+
 function Table() {
     const data = useFetch().fetchData
  
+
+
   return (
     <table>
       <thead>
@@ -14,6 +20,7 @@ function Table() {
               <th style={{width: "150px"}}>Recorrencia</th>
               <th>tipo</th>
               <th>Valor</th>
+              <th>Ação</th>
            </tr>
       </thead>
       
@@ -27,6 +34,7 @@ function Table() {
                   <td>{item.recorrencia}</td>
                   <td >{item.transacao}</td>
                   <td>{item.valor}</td>
+                  <td id='delete-icon'>X</td>
               </tr>
               )
            }):<h1>is not array</h1>}

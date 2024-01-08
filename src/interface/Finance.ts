@@ -1,6 +1,7 @@
 export interface Finance{
+    id: number
     descricao: string,
-    data: Date,
+    data: string,
     recorrencia: string,
     transacao: string,
     valor: number
