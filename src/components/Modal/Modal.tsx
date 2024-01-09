@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup' 
 import usePost from '../../hooks/usePost'
 import CardMensage from '../card-mensage/CardMensage'
+import InputMask from 'react-input-mask' 
 import React from 'react'
 
 interface PropsModal{
@@ -12,10 +13,10 @@ interface PropsModal{
     onClose: any
 }
 const schema = Yup.object().shape({
-    descricao: Yup.string().required("Campo obrigatório!"),
-    data: Yup.string().max(6, 'dd/MM/yy ').required('A data é obrigatória.').typeError("data invalida"),
+    descricao: Yup.string().required("Campo obrigatório!").max(50, 'È permitido apenas 50 caracteres'),
+    data: Yup.string().required('A data é obrigatória.').typeError("data invalida"),
     transacao: Yup.string().required("Campo obrigatório!"),
-    recorrencia: Yup.string().required("Campo obrigatório!"),
+    categoria: Yup.string().required("Campo obrigatório!"),
     valor: Yup.number().positive("o valor precisa ser positivo").moreThan(0).required("Campo Obrigatório!").typeError("Número invalido")
 })
 
@@ -25,12 +26,10 @@ const [mensage, setMensage] = React.useState(false)
 
     const handleCloseModal = () =>{
         if(props.onClose){
-            
             setTimeout(() =>{
                 props.onClose()
                 window.location.reload()
-            }, 1000)
-           
+            }, 700)
         }
     }
 
@@ -47,8 +46,6 @@ const [mensage, setMensage] = React.useState(false)
             usePost(data);
             setMensage(true)
             handleCloseModal()
-            
-           
         }
         catch (err){
             console.error(err)
@@ -90,28 +87,33 @@ const [mensage, setMensage] = React.useState(false)
                 </div>
                 <div className='question'>
                         <div><label htmlFor="text">Data</label></div>
-                        <input type="text" {...register("data")}/>
+        
+                        <InputMask mask="99/99/9999" {...register("data")}/>
                         {errors.data && (<p id='MsgError'>{errors.data.message}</p>)}
                 </div>
                 <div className='question'>
                         <div><label htmlFor="text">Tipo de Transação</label></div>
-                        <select defaultValue="padrao" {...register("transacao")}>
-                            <option value="padrao" disabled={true}>escolha uma opção...</option>
+                        <select defaultValue="entrada" {...register("transacao")}>
+                            <option value="entrada" disabled={true}>escolha uma opção...</option>
                             <option value="entrada">Entrada</option>
                             <option value="saida">Saida</option>
                         </select>
                         {errors.transacao && (<p id='MsgError'>{errors.transacao.message}</p>)}
                 </div>
                 <div className='question'>
-                        <div><label htmlFor="text">Recorrencia</label></div>
-                        <select defaultValue="padrao" {...register("recorrencia")}>
-                            <option value="padrao" disabled={true}>Escolha uma opção...</option>
-                            <option value="semanal">Semanal</option>
-                            <option value="mensal">Mensal</option>
-                            <option value="semestral">Semestral</option>
-                            <option value="anual">Anual</option>
+                        <div><label htmlFor="text">categoria</label></div>
+                        <select defaultValue="outros" {...register("categoria")}>
+                            <option value="outros" disabled={true}>Escolha uma opção...</option>
+                            <option value="alimentacao">Alimentação</option>
+                            <option value="moradia">Moradia</option>
+                            <option value="lazer">Lazer</option>
+                            <option value="estudos">Estudos</option>
+                            <option value="transporte">Transporte</option>
+                            <option value="viagens">Viagens</option>
+                            <option value="salario">Salário</option>
+                            <option value="outros">Outros...</option>
                         </select>
-                        {errors.recorrencia && (<p id='MsgError'>{errors.recorrencia.message}</p>)}
+                        {errors.categoria && (<p id='MsgError'>{errors.categoria.message}</p>)}
                 </div>
                 <div className='btn-modal'>
                     <div className="btn-container">

@@ -1,4 +1,5 @@
 import useFetch from '../../hooks/useFetch'
+import useDelete from '../../hooks/useDelete'
 import { Finance } from '../../interface/Finance'
 import './index.css'
 
@@ -9,6 +10,8 @@ import './index.css'
 function Table() {
     const data = useFetch().fetchData
  
+    const dell = useDelete
+    console.log(dell)
 
 
   return (
@@ -17,8 +20,8 @@ function Table() {
             <tr>
               <th style={{width: "550px"}}>descrição</th>
               <th>Data</th>
-              <th style={{width: "150px"}}>Recorrencia</th>
-              <th>tipo</th>
+              <th style={{width: "150px"}}>Categoria</th>
+              <th>Tipo</th>
               <th>Valor</th>
               <th>Ação</th>
            </tr>
@@ -31,7 +34,7 @@ function Table() {
                 <tr key={item.id}>
                   <td style={{textAlign:"left"}}>{item.descricao}</td>
                   <td>{item.data}</td>
-                  <td>{item.recorrencia}</td>
+                  <td>{item.categoria}</td>
                   <td >{item.transacao}</td>
                   <td>{item.valor}</td>
                   <td id='delete-icon'>X</td>

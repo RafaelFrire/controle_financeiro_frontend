@@ -4,6 +4,7 @@ import TitlePage from './components/TitlePage/TitlePage.tsx'
 import Table from './components/table/Table.tsx';
 import useFetch from './hooks/useFetch.tsx';
 import Button from './components/Button/Button.tsx'  
+import CardMensage from './components/card-mensage/CardMensage.tsx';
 
 function App() {
 
@@ -18,8 +19,8 @@ function App() {
           <CardsController Title='Saídas' value={data.sub} Color='#C07474'></CardsController>
           <CardsController Title='Balanço' value={data.balance} Color='#DAB453'></CardsController>
         </section>
-        <Table/>
-        <Button />
+        <Table></Table>
+        <Button></Button>
 
     </>
   )
