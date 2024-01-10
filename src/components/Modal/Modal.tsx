@@ -13,10 +13,10 @@ interface PropsModal{
     onClose: any
 }
 const schema = Yup.object().shape({
-    descricao: Yup.string().required("Campo obrigatório!").max(50, 'È permitido apenas 50 caracteres'),
-    data: Yup.string().required('A data é obrigatória.').typeError("data invalida"),
-    transacao: Yup.string().required("Campo obrigatório!"),
-    categoria: Yup.string().required("Campo obrigatório!"),
+    descricao: Yup.string().required("Campo Obrigatório!").max(50, 'È permitido apenas 50 caracteres'),
+    data: Yup.string().required('Campo Obrigatório!').typeError("data invalida"),
+    transacao: Yup.string().required("Campo Obrigatório!"),
+    categoria: Yup.string().required("Campo Obrigatório!"),
     valor: Yup.number().positive("o valor precisa ser positivo").moreThan(0).required("Campo Obrigatório!").typeError("Número invalido")
 })
 

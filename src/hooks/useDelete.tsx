@@ -4,13 +4,15 @@ import { Finance } from '../interface/Finance'
 
 
 function useDelete(data:Finance) {
-
-    const URL = "localhost:3000"
+    const URL = "http://localhost:3000/transactions"
     const ID = data.id
-    axios.delete(`${URL}/transactions/${ID}`)
+    axios.delete(`${URL}/${ID}`)
+    document.location.reload()
+
+    //  window.location.reload()
 
   return (
-    {ID}
+    {}
   )
 }
 

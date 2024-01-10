@@ -10,8 +10,12 @@ import './index.css'
 function Table() {
     const data = useFetch().fetchData
  
-    const dell = useDelete
-    console.log(dell)
+    const HandleDelete = (data:Finance) =>{
+      useDelete(data)
+      console.log("clicou")
+    }
+   
+    
 
 
   return (
@@ -37,7 +41,7 @@ function Table() {
                   <td>{item.categoria}</td>
                   <td >{item.transacao}</td>
                   <td>{item.valor}</td>
-                  <td id='delete-icon'>X</td>
+                  <td id='delete-icon' onClick={() => useDelete(item)}>X</td>
               </tr>
               )
            }):<h1>is not array</h1>}
