@@ -2,23 +2,23 @@ import useFetch from '../../hooks/useFetch'
 import useDelete from '../../hooks/useDelete'
 import { Finance } from '../../interface/Finance'
 import './index.css'
-
-
+import React from 'react'
 
 
 
 function Table() {
-    const data = useFetch().fetchData
+    const {fetchData} = useFetch();
+
+    const {deleteTransaction, setMensagem} = useDelete()
  
-    const HandleDelete = (data:Finance) =>{
-      useDelete(data)
-      console.log("clicou")
+
+    const handleClick = (dataDelete:Finance) =>{
+      deleteTransaction(dataDelete)
     }
-   
     
-
-
   return (
+    <>
+        {setMensagem()}
     <table>
       <thead>
             <tr>
@@ -32,8 +32,8 @@ function Table() {
       </thead>
       
       <tbody>
-          {Array.isArray(data)?
-           data.map((item:Finance) =>{
+          {Array.isArray(fetchData)?
+           fetchData.map((item:Finance) =>{
               return(
                 <tr key={item.id}>
                   <td style={{textAlign:"left"}}>{item.descricao}</td>
@@ -41,12 +41,14 @@ function Table() {
                   <td>{item.categoria}</td>
                   <td >{item.transacao}</td>
                   <td>{item.valor}</td>
-                  <td id='delete-icon' onClick={() => useDelete(item)}>X</td>
+                  <td id='delete-icon' onClick={() => handleClick(item)}>X</td>
               </tr>
               )
            }):<h1>is not array</h1>}
       </tbody>
     </table>
+  
+    </>
   )
 }
 

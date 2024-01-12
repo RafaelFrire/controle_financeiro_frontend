@@ -4,16 +4,20 @@ import TitlePage from './components/TitlePage/TitlePage.tsx'
 import Table from './components/table/Table.tsx';
 import useFetch from './hooks/useFetch.tsx';
 import Button from './components/Button/Button.tsx'  
-import CardMensage from './components/card-mensage/CardMensage.tsx';
+import UseDelete from './hooks/useDelete.tsx';
+import React from 'react';
+
 
 function App() {
 
   const data = useFetch()
 
+  const {setMensagem} = UseDelete()
   return (
     <>
         <Header Title='Minhas Finanças'></Header>
         <TitlePage></TitlePage>
+        {setMensagem()}
         <section className='section_controller'>
           <CardsController Title='Entradas' value={data.sum} Color='#75B683'></CardsController>
           <CardsController Title='Saídas' value={data.sub} Color='#C07474'></CardsController>

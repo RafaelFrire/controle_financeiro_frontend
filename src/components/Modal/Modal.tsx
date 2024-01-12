@@ -1,12 +1,11 @@
 import './index.css'
-import { useForm, SubmitHandler } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { Finance } from '../../interface/Finance'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup' 
 import usePost from '../../hooks/usePost'
-import CardMensage from '../card-mensage/CardMensage'
 import InputMask from 'react-input-mask' 
-import React from 'react'
+
 
 interface PropsModal{
     status: Boolean,
@@ -22,7 +21,10 @@ const schema = Yup.object().shape({
 
 function Modal(props:PropsModal) {
 
-const [mensage, setMensage] = React.useState(false)
+    const {PostTransaction, setMensage} = usePost();
+
+   
+
 
     const handleCloseModal = () =>{
         if(props.onClose){
@@ -33,7 +35,6 @@ const [mensage, setMensage] = React.useState(false)
         }
     }
 
-
     const { register, handleSubmit, formState} =useForm({
         mode: 'all',
         resolver: yupResolver(schema)
@@ -43,8 +44,7 @@ const [mensage, setMensage] = React.useState(false)
 
     const handleSubmitData = (data:Finance) =>{
         try{
-            usePost(data);
-            setMensage(true)
+            PostTransaction(data);
             handleCloseModal()
         }
         catch (err){
@@ -58,8 +58,7 @@ const [mensage, setMensage] = React.useState(false)
   
 
         {props.status ?  <div className='setModal'>
-        {mensage && <CardMensage mensage='Registrado com sucesso!'/>} 
-
+        {setMensage()}
         <div className="modal">
         <div className='Modal-content'>
         <div className='btn-closeModal'>

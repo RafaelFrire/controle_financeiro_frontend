@@ -4,19 +4,31 @@ import { Finance } from '../interface/Finance'
 import CardMensage from '../components/card-mensage/CardMensage'
 
 
-function usePost(data:Finance) {
+function usePost() {
+  const [message, setMessage] = React.useState<string | null>(null);
+
+  const PostTransaction = async (data:Finance) =>
+  {
+    try{
+      const BaseUrl = 'http://localhost:3000'
+      axios.post(`${BaseUrl}/transactions`, data)
+      setMessage('Registrado com sucesso!')
+    }
+    catch (err){
+      console.log("MEU ERROR")
+    }
+    
+  }
   
-  try{
-    const BaseUrl = 'http://localhost:3000'
-    axios.post(`${BaseUrl}/transactions`, data)
+  const setMensage = () =>{
+    return(message && <CardMensage mensage={message}/> )
   }
-  catch (err){
-    console.log("MEU ERROR")
-  }
-   
 
-
-
+  return(
+    {PostTransaction, setMensage}
+  )
 }
+
+
 
 export default usePost

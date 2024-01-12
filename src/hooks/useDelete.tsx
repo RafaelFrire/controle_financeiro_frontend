@@ -1,18 +1,35 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import axios from 'axios' 
 import { Finance } from '../interface/Finance'
+import CardMensage from '../components/card-mensage/CardMensage'
 
 
-function useDelete(data:Finance) {
-    const URL = "http://localhost:3000/transactions"
-    const ID = data.id
-    axios.delete(`${URL}/${ID}`)
-    document.location.reload()
+function useDelete() {
+  const [message, setMessage] = React.useState<string | null>(null);
 
-    //  window.location.reload()
+  const deleteTransaction = async (data: Finance) => {
+    try {
+      const URL = "http://localhost:3000/transactions";
+      const ID = data.id;
+      
+       await axios.delete(`${URL}/${ID}`);
+      setMessage("Item Excluido com sucesso!!")
+      setTimeout(() => {
+        setMessage(null);
+        window.location.reload()
+      }, 1000);
+    } catch (error) {
+      console.error("Erro ao excluir transação:", error);
+    }
+  };
 
-  return (
-    {}
+  const setMensagem = () =>{
+    return(message && <CardMensage mensage={message}></CardMensage>)
+  }
+  
+    return (
+      {deleteTransaction, setMensagem}
+
   )
 }
 
