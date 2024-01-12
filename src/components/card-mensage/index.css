@@ -2,10 +2,10 @@
 .container-msg{
     position: absolute;
     display: flex;
-    right: 5em;
+    right: 5%;
     flex-direction: row;
-    justify-content: right;
-    align-items: end;
+    justify-content: flex-end;
+    align-items: flex-end;
     min-height: 20vh;
     animation: slide 1s;
     opacity: 1;
@@ -16,24 +16,20 @@
     display: flex;
     align-items: center;
     text-align: center;
-    max-width: 30vw;
-    height: 10vh;
-    padding: 30px 0;
+    max-width: 90%;
+    height: auto;
+    padding: 20px;
     background-color: #4BBC64;
 }
 
 .pop-up p{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.6rem;
-    padding: 0px 30px;
+    padding: 0 15px; /* Adjusted for responsiveness */
     font-weight: 500;
     color: #FFFFFF;
 }
 
-
-.hiddenElement{
-    opacity: 0;
-}
 
 @keyframes slide {
     from{
@@ -42,6 +38,21 @@
     }
     to{
         opacity: 1;
-        right: 5em;
+        right: 5%;
+    }
+}
+
+
+@media (max-width: 767px){
+   
+    .container-msg{
+        width: 100%;
+        align-items: center;
+        right: 0;
+        min-height: 15vh;
+    }
+    .pop-up{
+        max-width: 100%;
+       
     }
 }

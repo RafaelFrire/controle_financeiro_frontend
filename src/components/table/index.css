@@ -1,36 +1,103 @@
 
 table{
+
     color: black;
-    margin: 0 auto;
-    padding: 70px 0;
-    max-width: 900px;
+    margin: 70px auto;
+    padding: 20px 0; /* Adjusted padding for better spacing */
+    max-width: 100%; /* Make the table responsive */
+    border-collapse: collapse; /* Add this to collapse table borders */
+    
 }
+
 
 tr{
-    height: 40px;
-    font-size: 20px;
-}
+    height: 50px;
+    font-size: 18px; 
+    
+} 
+
 
 th{
-    text-align: center;
-    background-color: #787878;;
+    background-color: #787878;
     color: #ECECEC;
     font-family: Arial;
-  
 }
 
 td{
-    width: 100px;
-    height: 40px;
-    background-color: #E4E4E4;
+    font-size: 1.3rem;
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 0 10px;     
+    padding: 10px;
+    border-bottom: 2px solid #787878;
+    text-align: center;
+
 }
 
+th#column-description,
+td#column-description{
+    width: 500px;
+
+}
+
+th#column-category,
+td#column-category {
+    width: 150px;
+}
+
+
+th#column-action,
+td#column-action {
+    width: 45px;
+}
 #delete-icon{
     font-size: 1.4rem;
     font-weight: bold;
     cursor: pointer;
     color: red;
 }   
+
+
+@media (max-width: 767px){
+    table{
+        width: 100%;
+        
+    }
+    table thead{
+        display: none;
+    }
+
+    table td{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px; /* Added margin for better spacing */
+    }
+
+    td::before {
+        content: attr(data-title);
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px; /* Added margin for better spacing */
+    }
+
+    #delete-icon {
+        text-align: center; /* Centering the delete icon */
+    }
+
+
+th#column-description,
+td#column-description{
+    width: 100%;
+}
+
+th#column-category,
+td#column-category {
+    width: 100%;
+}
+
+
+th#column-action,
+td#column-action {
+    width: 100%;
+}
+
+    
+}

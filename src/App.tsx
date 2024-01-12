@@ -24,7 +24,7 @@ function App() {
           <CardsController Title='Balanço' value={data.balance} Color='#DAB453'></CardsController>
         </section>
         <Table></Table>
-        <Button></Button>
+        <Button></Button> 
 
     </>
   )
