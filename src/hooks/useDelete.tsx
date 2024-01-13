@@ -9,10 +9,9 @@ function useDelete() {
 
   const deleteTransaction = async (data: Finance) => {
     try {
-      const URL = "http://localhost:3000/transactions";
+      const URL = "https://controle-financeiro-backend-neon.vercel.app";
       const ID = data.id;
-      
-       await axios.delete(`${URL}/${ID}`);
+      await axios.delete(`${URL}/transactions/${ID}`);
       setMessage("Item Excluido com sucesso!!")
       setTimeout(() => {
         setMessage(null);

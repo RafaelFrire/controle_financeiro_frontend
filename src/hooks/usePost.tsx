@@ -10,7 +10,7 @@ function usePost() {
   const PostTransaction = async (data:Finance) =>
   {
     try{
-      const BaseUrl = 'http://localhost:3000'
+      const BaseUrl = 'https://controle-financeiro-backend-neon.vercel.app'
       axios.post(`${BaseUrl}/transactions`, data)
       setMessage('Registrado com sucesso!')
     }

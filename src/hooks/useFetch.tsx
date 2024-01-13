@@ -9,7 +9,7 @@ function useFetch() {
  const [sub, setSub] = React.useState<number>(0)
  const balance:any = (sum-sub).toFixed(2);
 
- const baseURL = 'http://localhost:3000'
+ const baseURL = 'https://controle-financeiro-backend-neon.vercel.app'
  useEffect(() =>{
     try {
         axios.get(`${baseURL}/transactions`).then((response) => {
