@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import axios from 'axios' 
 import { Finance } from '../interface/Finance'
 import CardMensage from '../components/card-mensage/CardMensage'

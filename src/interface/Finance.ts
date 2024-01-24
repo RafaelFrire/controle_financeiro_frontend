@@ -1,5 +1,5 @@
 export interface Finance{
-    id: number
+    id?: number
     descricao: string,
     data: string,
     categoria: string,

@@ -2,8 +2,6 @@ import useFetch from '../../hooks/useFetch'
 import useDelete from '../../hooks/useDelete'
 import { Finance } from '../../interface/Finance'
 import './index.css'
-import React from 'react'
-
 
 
 function Table() {

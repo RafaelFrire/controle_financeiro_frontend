@@ -1,11 +1,10 @@
 import Header from './components/header/Header.tsx'
 import CardsController from './components/cards-controller/CardsController.tsx'
 import TitlePage from './components/TitlePage/TitlePage.tsx'
-import Table from './components/table/Table.tsx';
+import Table from './components/table/table.tsx';
 import useFetch from './hooks/useFetch.tsx';
 import Button from './components/Button/Button.tsx'  
 import UseDelete from './hooks/useDelete.tsx';
-import React from 'react';
 
 
 function App() {

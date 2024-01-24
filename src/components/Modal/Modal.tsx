@@ -23,8 +23,6 @@ function Modal(props:PropsModal) {
 
     const {PostTransaction, setMensage} = usePost();
 
-   
-
 
     const handleCloseModal = () =>{
         if(props.onClose){
@@ -40,11 +38,11 @@ function Modal(props:PropsModal) {
         resolver: yupResolver(schema)
 
     })
-    const { errors, isSubmitting } = formState;
+    const { errors } = formState;
 
-    const handleSubmitData = (data:Finance) =>{
+    const handleSubmitData = (formData: {id:number; descricao: string; valor: number; data: string; transacao: string; categoria: string; }) =>{
         try{
-            PostTransaction(data);
+            PostTransaction(formData);
             handleCloseModal()
         }
         catch (err){
