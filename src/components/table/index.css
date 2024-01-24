@@ -57,47 +57,96 @@ td#column-action {
 
 
 @media (max-width: 767px){
-    table{
-        width: 100%;
-        
-    }
-    table thead{
+
+    thead{
         display: none;
     }
-
-    table td{
+    tbody{
         display: flex;
-        justify-content: space-between;
-        margin-bottom: 20px; /* Added margin for better spacing */
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 100vh;
+        gap: 10px;
+      
+       
+    }
+    td{ 
+     
+        background-color: #5F5CF3;
+        border: none;
+        color: white;
     }
 
-    td::before {
-        content: attr(data-title);
-        display: block;
+    tr{
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        width: 100%;
+        height: 15vh;
+        margin: 0px 10px ;
+        text-align: center;
+    }
+
+    td[data-title="descricao"]{
+        grid-column: 1/4;
+        grid-row: 1;
+        font-size: 1.5rem;
+        font-family: monospace;
+    }
+
+    td[data-title="valor"]{
+        font-size: 1.2rem;
+        grid-column: 1 / 4;
+        grid-row: 2;
+        font-size: 2.5rem;
         font-weight: bold;
-        margin-bottom: 5px; /* Added margin for better spacing */
     }
 
-    #delete-icon {
-        text-align: center; /* Centering the delete icon */
+    td[data-title="data"]{
+        font-size: .5em;
+        grid-column: 1;
+        grid-row: 3;
+        font-weight: bold;
+        font-size: 1rem;
     }
 
+    td[data-title="ação"]{
+        font-size: .5em;
+        grid-column: 3;
+        grid-row: 1;
+        text-align: center;
+        font-size: 1rem;
+        color: black;
 
-th#column-description,
-td#column-description{
-    width: 100%;
-}
+    }
 
-th#column-category,
-td#column-category {
-    width: 100%;
-}
+    td[data-title="transacao"]{
+        font-size: .7em;
+        grid-column: 2;
+        grid-row: 3;
+        font-size: 1rem;
+        font-weight: bold;
 
+    }
 
-th#column-action,
-td#column-action {
-    width: 100%;
-}
+    td[data-title="categoria"]{
+        font-size: .7em;
+        grid-column: 3;
+        grid-row: 3;
+        font-weight: bold;
+        font-size: 1rem;
+        
+    }
+ 
+    #delete-icon{
+        font-size: 1.6rem;
+        text-align: right;
+        color: black;
 
+    }
+    #delete-icon:hover{
+       color: red;
+    }
     
 }

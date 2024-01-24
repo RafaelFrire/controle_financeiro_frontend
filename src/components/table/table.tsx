@@ -28,7 +28,7 @@ function Table() {
            </tr>
       </thead>
       
-      <tbody>
+      <tbody className='card'>
           {Array.isArray(fetchData)?
            fetchData.map((item:Finance) =>{
               return(
