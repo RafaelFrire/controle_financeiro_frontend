@@ -40,7 +40,7 @@ function Modal(props:PropsModal) {
     })
     const { errors } = formState;
 
-    const handleSubmitData = (formData: {id:number; descricao: string; valor: number; data: string; transacao: string; categoria: string; }) =>{
+    const handleSubmitData = (formData:Finance) =>{
         try{
             PostTransaction(formData);
             handleCloseModal()
