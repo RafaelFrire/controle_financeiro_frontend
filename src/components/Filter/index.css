@@ -1,0 +1,14 @@
+.inputs-max-min{
+    display: flex;
+    gap: 20px;
+    
+}
+
+.input-about{
+    margin: 0 30px;
+}
+
+input::placeholder{
+    font-size: 1.3rem;
+    margin: 5px;
+}

@@ -5,7 +5,7 @@ import Table from './components/table/Table.tsx';
 import useFetch from './hooks/useFetch.tsx';
 import Button from './components/Button/Button.tsx'  
 import UseDelete from './hooks/useDelete.tsx';
-import React from 'react';
+import Filter from './components/Filter/Filter.tsx'
 
 
 function App() {
@@ -23,6 +23,7 @@ function App() {
           <CardsController Title='Saídas' value={data.sub} Color='#C07474'></CardsController>
           <CardsController Title='Balanço' value={data.balance} Color='#DAB453'></CardsController>
         </section>
+        <Filter></Filter>
         <Table></Table>
         <Button></Button> 
 
